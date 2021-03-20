@@ -12,14 +12,14 @@
       "type": "Textbox",
       "configuration": {
         "id": "username",
-        "label": "First name"
+        "label": "First Name"
       }
     },
     {
       "type": "Textbox",
       "configuration": {
         "id": "lastname",
-        "label": "Last name"
+        "label": "Last Name"
       }
     },
     {
