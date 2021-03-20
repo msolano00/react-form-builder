@@ -6,13 +6,14 @@ const Dropdown = ({
   id,
   label,
   options,
+  value,
   handleStateUpdate
 }) => {
 
   return (
     <div>
       <label htmlFor={id}>{label}</label><br/>
-      <select name={id} id={id} onChange={handleStateUpdate}>
+      <select name={id} id={id} value={value} onChange={handleStateUpdate}>
         {options.map((option, index) => <option value={option.value} key={index}>{option.label}</option>)}
       </select>
     </div>
