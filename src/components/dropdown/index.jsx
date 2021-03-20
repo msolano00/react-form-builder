@@ -5,13 +5,14 @@ import { v4 as uuidv4 } from 'uuid';
 const Dropdown = ({
   id,
   label,
-  options
+  options,
+  handleStateUpdate
 }) => {
 
   return (
     <div>
       <label htmlFor={id}>{label}</label><br/>
-      <select name={id} id={id}>
+      <select name={id} id={id} onChange={handleStateUpdate}>
         {options.map((option, index) => <option value={option.value} key={index}>{option.label}</option>)}
       </select>
     </div>
@@ -21,7 +22,8 @@ const Dropdown = ({
 Dropdown.propTypes = {
   id: PropTypes.string,
   label: PropTypes.string,
-  options: PropTypes.array
+  options: PropTypes.array,
+  handleStateUpdate: PropTypes.func
 }
 
 Dropdown.defaultProps = {
@@ -32,7 +34,8 @@ Dropdown.defaultProps = {
       value: 0,
       label: 'None'
     }
-  ]
+  ],
+  handleStateUpdate: console.warn('Missing state handler on the Dropdown component')
 }
 
 export default Dropdown;
