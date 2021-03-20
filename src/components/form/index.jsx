@@ -24,13 +24,19 @@ const Form = ({configuration}) => {
       return element;
     });
     setFormData(updatedState);
-  }
+  };
 
   const builder = (form_configuration) => {
     return form_configuration.form.map((element, index) => {
-      if(element.type === 'Infobox') return <Infobox {...element.configuration} key={index}/>
-      if(element.type === 'Textbox') return <Textbox handleStateUpdate={handleStateUpdate}  {...element.configuration} key={index}/>
-      if(element.type === 'Dropdown') return <Dropdown {...element.configuration} key={index}/>
+      if(element.type === 'Infobox') {
+        return <Infobox {...element.configuration} key={index}/>
+      }
+      if(element.type === 'Textbox') {
+        return <Textbox handleStateUpdate={handleStateUpdate}  {...element.configuration} key={index}/>
+      }
+      if(element.type === 'Dropdown') {
+        return <Dropdown handleStateUpdate={handleStateUpdate} {...element.configuration} key={index}/>
+      }
 
       return null;
     })
