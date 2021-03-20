@@ -1,0 +1,48 @@
+---
+name: Demo
+form:
+- type: Infobox
+  configuration:
+    message: Welcome to the first iteration of the form builder!
+- type: Textbox
+  configuration:
+    id: username
+    label: First name
+- type: Textbox
+  configuration:
+    id: lastname
+    label: Last name
+- type: Dropdown
+  configuration:
+    id: profession
+    label: Profession
+    options:
+    - value: None
+      label: None
+    - value: Architect
+      label: Architect
+    - value: Designer
+      label: Designer
+    - value: Economist
+      label: Economist
+    - value: Developer
+      label: Developer
+- type: Dropdown
+  configuration:
+    id: developer_type
+    label: Developer Type
+    options:
+    - value: None
+      label: None
+    - value: Data Scientist
+      label: Data Scientist
+    - value: DevOps Engineer
+      label: DevOps Engineer
+    - value: SecOps Engineer
+      label: SecOps Engineer
+    - value: Software Engineer
+      label: Software Engineer
+  depends:
+    node: profession
+    condition: EQUALS
+    value: ''
