@@ -1,21 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Infobox = ({information}) => {
+const Infobox = ({message}) => {
 
   return (
     <div>
-      <p>{information}</p>
+      <p>{message}</p>
     </div>
   )
 };
 
 Infobox.propTypes = {
-  information: PropTypes.string
+  message: PropTypes.string
 }
 
 Infobox.defaultProps = {
-  information: ''
+  message: ''
 }
 
 export default Infobox;
