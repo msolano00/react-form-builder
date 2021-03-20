@@ -9,7 +9,7 @@ import Button from '../button';
 const Form = ({configuration}) => {
   
   const stateBuilder = configuration.form
-  // .filter(element => element.type !== 'Infobox')
+  .filter(element => element.type !== 'Infobox')
   .map(element => ({ id: element.configuration.id, value: '' }));
 
   const [formData, setFormData] = useState(stateBuilder);
@@ -29,6 +29,7 @@ const Form = ({configuration}) => {
 
   const handleConditionals = (state, node) => {
     let flag = false;
+
     if(node.depends?.node !== undefined) {
       const dependecyNode = state.filter(element => element.id === node.depends.node)[0];
       
@@ -56,42 +57,31 @@ const Form = ({configuration}) => {
   }
 
   const builder = (form_configuration) => {
-    return formData
+    console.log({formData})
+   
+    return form_configuration.form
     .filter(element => {
-      const node = form_configuration.form.find(node => node.configuration.id === element.id);
-      if(node.depends === undefined) return node;
-      else if(handleConditionals(formData, node)) return node;
+      if(element.depends === undefined) return element;
+      // else if(handleConditionals(formData, element)) return element;
       return null
-    }).map(element => {
-      const node = form_configuration.form.find(node => node.configuration.id === element.id);
-      switch(node.type) {
+    })
+    .map((element, index) => {
+      switch(element.type) {
         case 'Infobox':
-          return <Infobox {...node.configuration} key={element.id}/>
+          return <Infobox {...element.configuration} key={index}/>
         case 'Textbox':
-          return <Textbox 
-            handleStateUpdate={handleStateUpdate}
-            value={element.value}
-            key={element.id} 
-            {...node.configuration}/>
+          return <Textbox handleStateUpdate={handleStateUpdate}  {...element.configuration} key={index}/>
         case 'Numeric':
-          return <Numeric 
-            handleStateUpdate={handleStateUpdate}
-            value={element.value}
-            key={element.id}
-            {...node.configuration}/>
+          return <Numeric handleStateUpdate={handleStateUpdate}  {...element.configuration} key={index}/>
         case 'Dropdown':
-          return <Dropdown 
-            handleStateUpdate={handleStateUpdate}
-            value={element.value}
-            key={element.id}
-            {...node.configuration} />
+          return <Dropdown handleStateUpdate={handleStateUpdate} {...element.configuration} key={index}/>
         default:
           return null;
       }
     })
   };
 
-  const form = builder(configuration);
+  const form = builder(configuration)
   
   return (
     <div>

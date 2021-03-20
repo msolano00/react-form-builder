@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 
-const Textbox = ({
+const Numeric = ({
   id,
   label,
   value,
@@ -13,28 +13,25 @@ const Textbox = ({
     <div>
       <label htmlFor={id}>{label}</label><br />
       <input 
-        type="text" 
+        type="number" 
         id={id} 
-        name={id} 
+        name={id}
         value={value}
-        onChange={handleStateUpdate} 
-        autoComplete="off"
-      />
+        onChange={handleStateUpdate}/>
     </div>
   )
 };
 
-Textbox.propTypes = {
+Numeric.propTypes = {
   id: PropTypes.string,
   label: PropTypes.string,
-  value: PropTypes.string,
   handleStateUpdate: PropTypes.func
 }
 
-Textbox.defaultProps = {
+Numeric.defaultProps = {
   id: uuidv4(),
   label: 'Label',
-  handleStateUpdate: () => console.warn(`Missing state handler on the Textbox component`)
+  handleStateUpdate: () => console.warn(`Missing state handler on the Numeric component`)
 }
 
-export default Textbox;
+export default Numeric;
