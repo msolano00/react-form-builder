@@ -84,68 +84,6 @@
         "condition": "EQUALS",
         "value": "Developer"
       }
-    },
-    {
-      "type": "Numeric",
-      "configuration": {
-        "id": "age",
-        "label": "Age"
-      }
-    },
-    {
-      "type": "Infobox",
-      "configuration": {
-        "id": "greaterThanMessage",
-        "message": "Wow you are old!"
-      },
-      "depends": {
-        "node": "age",
-        "condition": "GREATER THAN",
-        "value": 30
-      }
-    },
-    {
-      "type": "Infobox",
-      "configuration": {
-        "id": "lessThanMessage",
-        "message": "Wow you are young!"
-      },
-      "depends": {
-        "node": "age",
-        "condition": "LESS THAN",
-        "value": 30
-      }
-    },
-    {
-      "type": "Textbox",
-      "configuration": {
-        "id": "pizza",
-        "label": "Pizza toppings"
-      }
-    },
-    {
-      "type": "Infobox",
-      "configuration": {
-        "id": "includeMessage",
-        "message": "Not pizza!"
-      },
-      "depends": {
-        "node": "pizza",
-        "condition": "INCLUDES",
-        "value": "pineapple"
-      }
-    },
-    {
-      "type": "Infobox",
-      "configuration": {
-        "id": "excludeMessage",
-        "message": "Yummy!"
-      },
-      "depends": {
-        "node": "pizza",
-        "condition": "EXCLUDES",
-        "value": "pineapple"
-      }
     }
   ]
 }
